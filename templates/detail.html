@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block head %}<title>{{post.title}}</title>{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <div class="card mb-3">
+        <h4 class="card-header">{{ post.title }}</h5>
+        <div class="card-body text-dark">
+          <h5 class="card-title">提出先：{{ post.user }}</h5>
+          <p class="card-text">{{ post.detail }}</p>
+          <p class="card-text">{{ post.post_date.date() }}</p>
+          <a href="/" type="button" class="btn-lg btn-secondary">戻る</a>
+          <a type="button" href="/deleteConf/{{ post.id }}" class="btn-lg btn-danger">削除</a>
+        </div>
+    </div>
+</div>
+<script>
+  const $user = document.getElementsByClassName('card-title');
+  const $header = document.getElementsByClassName('Header');
+  if($user[0].textContent.substr(4) === 'はろやん'){
+    $header[0].classList.add('haroyan');
+  }
+</script>
+{% endblock %}

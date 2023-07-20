@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block head %}<title>削除</title>{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="card mb-3" style="max-width: 30rem;">
+            <div class="card-header">日付：{{ post.post_date.date() }}　提出先：{{ post.user }}</div>
+            <div class="card-body text-dark">
+            <h5 class="card-title">タイトル：{{ post.title }}</h5>
+            <p class="card-text">{{ post.detail }}</p>
+            <a href="/" type="button" class="btn-lg btn-secondary">戻る</a>
+            <a type="button" href="/delete/{{ post.id }}" class="btn-lg btn-danger">削除</a>
+            <h2 class = "deleteSent">削除しますか</h2>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

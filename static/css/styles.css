@@ -1,0 +1,77 @@
+
+body{
+    margin: 20px; /* bodyの外側の余白を指定する */
+    padding-top: 100px; /* bodyの内側余白を指定する(上:右:下:左) */
+}
+
+.Header {
+    position: fixed; /* ヘッダーを固定する */
+    z-index: 999;
+    top: 0; /* 上部から配置の基準位置を決める */
+    left: 0; /* 左から配置の基準位置を決める */
+    width: 100%; /* ヘッダーの横幅を指定する */
+    height: 70px; /* ヘッダーの高さを指定する */
+    padding: 20px; /* ヘッダーの余白を指定する(上下左右) */
+    background-color: #31a9ee; /* ヘッダーの背景色を指定する */
+}
+
+#HeaderHome {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    color:#000000;
+}
+
+.Contents {
+    width: 100%; /* コンテンツの横幅を指定する */
+    overflow: auto; /* コンテンツの表示を自動に設定（スクロール） */
+}
+
+.create_button {
+    position:fixed;
+    bottom:5%;
+    right:5%;
+}
+
+.create_work{
+    display: block;
+	text-align: center;
+    padding: 15px 30px;
+	text-decoration: none;
+	width: 140px;
+    height: 60px;
+	font-weight: bold;
+	border: 2px solid #31a9ee;
+	background: #27acd9;
+	color: #fff;
+	border-radius: 10vh;
+	transition: 0.5s;
+}
+
+.create_work:hover{
+    color: #31a9ee;
+    background-color: #fff;
+}
+
+.deleteSent {
+    color: #f84242;
+    float: right;
+    position: relative;
+    right: 20%;
+}
+
+.Warning {
+    background-color: #f84242;
+}
+
+.card {
+    margin-top: 20px;
+}
+
+.btn-lg {
+    text-decoration: none;
+}
+
+.haroyan {
+    background-color: #5ee659;
+}

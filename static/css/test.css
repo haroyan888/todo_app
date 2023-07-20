@@ -1,0 +1,19 @@
+.test-button {
+    display: block;
+	text-align: center;
+	text-decoration: none;
+	width: 120px;
+	margin: auto;
+	padding: 1rem 4rem;
+	font-weight: bold;
+	border: 2px solid #27acd9;
+	background: #27acd9;
+	color: #fff;
+	border-radius: 100vh;
+	transition: 0.5s;
+}
+
+.test-button:hover {
+    color: #27acd9;
+	background: #fff;
+}

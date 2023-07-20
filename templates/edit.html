@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block head %}<title>編集</title>{% endblock %}
+
+{% block body %}
+<h1>編集</h1>
+
+<form action="/commit/{{ post.id }}" method="POST">
+        <p>日付：<input type="date" name="post_date" required="required" value = {{ post.post_date.date() }}></p>
+        <input class="form-control" name="user" type="text" placeholder="提出先(全角20文字以内)" aria-label="default input example" required="required" value = {{ post.user }}>
+        <input class="form-control" name="title" type="text" placeholder="タイトル(全角30文字以内)" aria-label="default input example" required="required" value = {{ post.title }}>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">投稿内容</label>
+            <textarea class="form-control"  name="detail" id="exampleFormControlTextarea1" rows="3" required="required">{{ post.detail }}</textarea>
+        </div>
+        <a href="/" class="btn btn-outline-success">戻る</a>
+        <button type="submit" class="btn btn-success">投稿</button>
+</form>
+{% endblock %}

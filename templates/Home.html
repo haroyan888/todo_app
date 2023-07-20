@@ -1,11 +1,44 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TODOアプリ</title>
-</head>
-<body>
-    <h2>Hello !</h2>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block head %}<title>課題一覧表</title>{% endblock %}
+
+{% block body %}
+    <div class = "create_button">
+        <a href="/create" class="create_work">登録する</a>
+    </div>
+    <div class="container">
+        <script>let cnt = 0;</script>
+        {% for post in posts %}
+        <script>cnt++;</script>
+        <div class="card" style=max-width:60%>
+            <h5 class="card-header">日付：{{ post.post_date.date() }}</h5>
+            <div class="card-body">
+                <h5 class="card-title">タイトル：{{ post.title }}</h5>
+                <p class="card-text">提出先：{{ post.user }}</p>
+                <a role="button" href="/detail/{{ post.id }}" class="btn-lg btn-secondary">詳細</a>
+                <a role="button" href="/edit/{{ post.id }}" class="btn-lg btn-secondary">編集</a>
+                <a role="button" href="/deleteConf/{{ post.id }}" class="btn-lg btn-danger">削除</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div id="ContentNone">課題はありません！コーヒータイムを取りましょう！</div>
+    <script>
+        console.log('cnt : '+cnt);
+        const $doc = document;
+        const now = new Date();
+        console.log('Now Date : ' + now.getDate());
+        posts = document.getElementsByClassName("card-header");
+        for(let i = 0; i < posts.length; i++){
+            date = new Date(posts[i].textContent.substr(3)) - 9 * 3600000;
+            console.log(date);
+            if((date - now) / 86400000 <= 3){
+                posts[i].classList.add('Warning');
+            }
+            else if(now.getMonth === 3 && now.getDate === 2){
+                posts[i].classList.add('haroyan');
+            }
+        }
+        if(cnt > 0) document.getElementById('ContentNone').style.display = 'none';
+    </script>
+{% endblock %}
